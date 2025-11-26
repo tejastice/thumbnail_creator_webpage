@@ -1,6 +1,27 @@
 {
-  "latest": "1.0.0",
+  "latest": "1.0.1",
   "versions": [
+    {
+      "version": "1.0.1",
+      "releaseDate": "2025-11-27",
+      "fileSize": "1.8M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_0_1.zip",
+      "changelog": {
+        "newFeatures": [],
+        "improvements": [
+          "画像のストレージ容量制限エラー対策として、アップロード画像を自動的に800x800pxにリサイズ（品質85%）",
+          "chrome.storage.syncからchrome.storage.localへ移行（容量無制限）",
+          "サンプル画像参照時のAI指示を改善：雰囲気・構図・文字量などをより正確に模倣しながらオリジナリティを保持"
+        ],
+        "bugFixes": [
+          "他ユーザーのテンプレートインポート時に発生していた「Resource::kQuotaBytes quota exceeded」エラーを修正"
+        ],
+        "knownIssues": [
+          "FAL AI APIの利用には別途APIキーの取得とクレジットのチャージが必要です",
+          "画像生成には数秒～数十秒かかる場合があります"
+        ]
+      }
+    },
     {
       "version": "1.0.0",
       "releaseDate": "2025-01-27",
