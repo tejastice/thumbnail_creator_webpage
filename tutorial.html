@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thumbnail Creatorの詳しい使い方・インストール方法を解説します。FAL APIキーの取得からサムネイル生成まで、ステップバイステップで説明します。">
+  <title>使い方・チュートリアル | Thumbnail Creator</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="Thumbnail Creator">
+          Thumbnail Creator
+        </a>
+        <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+          ☰
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html#features">特徴</a></li>
+          <li><a href="tutorial.html">使い方</a></li>
+          <li><a href="gallery.html">ギャラリー</a></li>
+          <li><a href="index.html#download">ダウンロード</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tutorial Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>使い方・チュートリアル</h1>
+        <p class="hero-subtitle">
+          Thumbnail Creatorのインストールから基本的な使い方、高度な機能まで詳しく解説します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Section -->
+  <section class="content-section">
+    <div class="container container-narrow">
+      <h2>インストール方法</h2>
+      <p>Thumbnail CreatorはChrome拡張機能として動作します。以下の手順でインストールしてください。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>ZIPファイルをダウンロード</h3>
+            <p><a href="index.html#download">ダウンロードページ</a>から最新版のZIPファイルをダウンロードします。</p>
+            <img src="images/screenshots/how-to-install_01.jpg" alt="ダウンロードボタン" style="max-width: 100%; border-radius: var(--border-radius); margin-top: var(--spacing-sm); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>ZIPファイルを展開</h3>
+            <p>ダウンロードしたZIPファイルを右クリックして「すべて展開」または「解凍」を選択し、適当な場所に展開します。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Chrome拡張機能ページを開く</h3>
+            <p>Chromeを開き、右上のメニュー（⋮）→「拡張機能」→「拡張機能を管理」をクリックします。</p>
+            <img src="images/screenshots/how-to-install_03.jpg" alt="Chrome拡張機能メニュー" style="max-width: 100%; border-radius: var(--border-radius); margin-top: var(--spacing-sm); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>デベロッパーモードを有効化</h3>
+            <p>拡張機能ページの右上にある「デベロッパーモード」のトグルをオンにします。</p>
+            <img src="images/screenshots/how-to-install_04.jpg" alt="デベロッパーモード" style="max-width: 100%; border-radius: var(--border-radius); margin-top: var(--spacing-sm); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>拡張機能を読み込む</h3>
+            <p>「パッケージ化されていない拡張機能を読み込む」ボタンをクリックし、展開したフォルダを選択します。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>ツールバーに固定</h3>
+            <p>拡張機能がインストールされたら、ツールバーの拡張機能アイコン（パズルのピース）をクリックし、Thumbnail Creatorの横にあるピンアイコンをクリックして固定します。これでツールバーにアイコンが常に表示されるようになります。</p>
+            <img src="images/screenshots/how-to-install_06.jpg" alt="ツールバーに固定" style="max-width: 100%; border-radius: var(--border-radius); margin-top: var(--spacing-sm); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">7</div>
+          <div class="step-content">
+            <h3>インストール完了</h3>
+            <p>ツールバーに固定されたThumbnail Creatorのアイコンをクリックすることで、いつでも拡張機能を起動できます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API Setup Section -->
+  <section class="content-section" style="background-color: var(--color-gray-light);">
+    <div class="container container-narrow">
+      <h2>初期設定（FAL APIキーの取得）</h2>
+      <p>Thumbnail Creatorを使用するには、FAL AIのAPIキーが必要です。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>FAL AIアカウントを作成</h3>
+            <p><a href="https://fal.ai/" target="_blank" rel="noopener noreferrer">FAL AI公式サイト</a>にアクセスし、アカウントを作成します。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>APIキーを取得</h3>
+            <p><a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener noreferrer">FAL AIダッシュボード</a>にログインし、「API Keys」ページで「Add key」ボタンをクリックしてAPIキーを生成します。</p>
+            <img src="images/screenshots/fal_02.jpg" alt="FAL AI API Keys画面" style="max-width: 100%; border-radius: var(--border-radius); margin-top: var(--spacing-sm); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>クレジットをチャージ</h3>
+            <p><a href="https://fal.ai/dashboard/usage-billing/credits" target="_blank" rel="noopener noreferrer">クレジットページ</a>で必要な金額をチャージします。最初は10ドルで十分です。</p>
+            <img src="images/screenshots/fal_03.jpg" alt="FAL AIクレジットチャージ画面" style="max-width: 100%; border-radius: var(--border-radius); margin-top: var(--spacing-sm); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>APIキーを設定</h3>
+            <p>Thumbnail Creatorを起動し、右上の「⚙️ API設定」ボタンをクリックして、取得したAPIキーを入力して保存します。</p>
+            <img src="images/screenshots/fal_04.jpg" alt="Thumbnail Creator API設定画面" style="max-width: 100%; border-radius: var(--border-radius); margin-top: var(--spacing-sm); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-item mt-2" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+        <h3 style="color: #856404;">⚠️ セキュリティに関する重要な注意</h3>
+        <p style="color: #856404; margin-bottom: 0;">
+          APIキーはブラウザのローカルストレージに平文で保存されます。共有PCや公共のPCでは使用しないでください。APIキーが漏洩すると、第三者によって不正利用される可能性があります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Basic Usage Section -->
+  <section class="content-section">
+    <div class="container container-narrow">
+      <h2>基本的な使い方</h2>
+      <p>サムネイルを生成する基本的な手順を説明します。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>サムネイルを作りたいページを開く</h3>
+            <p>サムネイルを作成したいWebページ（ブログ記事、Brainの記事など）を開きます。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>右クリックメニューを開く</h3>
+            <p>ページ上の任意の場所で右クリックし、表示されたメニューから「ページ全体からデザインを作成」を選択します。</p>
+            <img src="images/screenshots/how-to-use_02.jpg" alt="右クリックメニュー" style="max-width: 100%; border-radius: var(--border-radius); margin-top: var(--spacing-sm); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>アスペクト比を選択</h3>
+            <p>用途に応じてアスペクト比を選択します：<br>
+            • 16:9 - YouTube、Brain、ブログのアイキャッチ<br>
+            • 4:5 - Instagramフィード<br>
+            • 1:1 - 正方形（Instagram、Facebook）<br>
+            • 9:16 - ストーリー、Shorts、TikTok</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>テーマカラーを選択</h3>
+            <p>サムネイルの配色を選択します。「おまかせ」を選ぶと、AIがコンテンツに適した色を自動選択します。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>デザインスタイルを選択</h3>
+            <p>好みのデザインスタイルを選択します：<br>
+            • モダン風 - 洗練されたシンプルなデザイン<br>
+            • ビビッド風 - カラフルで目を引くデザイン<br>
+            • プロフェッショナル風 - ビジネス向けの落ち着いたデザイン<br>
+            • ミニマル風 - 余白を活かしたシンプルなデザイン</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>生成ボタンをクリック</h3>
+            <p>選択したデザインの「生成」ボタンをクリックします。通常30秒〜1分程度で生成が完了します。生成された画像は自動的にダウンロードされます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advanced Usage Section -->
+  <section class="content-section" style="background-color: var(--color-gray-light);">
+    <div class="container container-narrow">
+      <h2>高度な使い方</h2>
+
+      <h3 class="mt-2">カスタムデザイングループの作成</h3>
+      <p>独自のデザインスタイルを作成して、オリジナルのサムネイルを生成できます。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>新規グループを追加</h3>
+            <p>「新規グループを追加」ボタンをクリックして、グループ名を入力します。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>デザインを追加</h3>
+            <p>「+ デザインを追加」ボタンで新しいデザインを追加します。各デザインには以下を設定できます：<br>
+            • ID - デザインの識別子<br>
+            • 名前 - 表示名<br>
+            • プロンプト - 画像生成用のプロンプト（英語推奨）<br>
+            • サンプル画像URL - 参考画像のURL（オプション）</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>保存して使用</h3>
+            <p>設定を保存すると、作成したデザイングループが新しいタブとして表示され、すぐに使用できます。</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-3">デザイングループのエクスポート/インポート</h3>
+      <p>作成したデザイングループをJSON形式でエクスポートし、他の環境で使用したり、他のユーザーと共有できます。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>エクスポート</h3>
+            <p>エクスポートしたいグループを選択し、「エクスポート」ボタンをクリックします。JSONファイルがダウンロードされます。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>インポート</h3>
+            <p>「インポート」ボタンをクリックし、エクスポートしたJSONファイルを選択します。デザイングループが追加されます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Troubleshooting Section -->
+  <section class="content-section">
+    <div class="container container-narrow">
+      <h2>トラブルシューティング</h2>
+
+      <div class="feature-item">
+        <h3>生成に失敗する場合</h3>
+        <p>以下の点を確認してください：</p>
+        <ul style="padding-left: 2.5rem;">
+          <li>FAL APIキーが正しく設定されているか</li>
+          <li>FAL AIアカウントにクレジットが残っているか（<a href="https://fal.ai/dashboard/usage-billing/credits" target="_blank">残高確認</a>）</li>
+          <li>インターネット接続が安定しているか</li>
+          <li>ページ内容が入力されているか</li>
+        </ul>
+      </div>
+
+      <div class="feature-item">
+        <h3>APIキーのエラー</h3>
+        <p>「API key is invalid」などのエラーが表示される場合：</p>
+        <ul style="padding-left: 2.5rem;">
+          <li>APIキーをコピー&ペーストする際に余分なスペースが入っていないか確認</li>
+          <li>FAL AIダッシュボードでAPIキーが有効か確認</li>
+          <li>必要に応じて新しいAPIキーを生成して再設定</li>
+        </ul>
+      </div>
+
+      <div class="feature-item">
+        <h3>タイムアウトエラー</h3>
+        <p>生成に時間がかかりすぎてタイムアウトする場合：</p>
+        <ul style="padding-left: 2.5rem;">
+          <li>ページ内容を短く簡潔にする</li>
+          <li>ネットワーク接続を確認する</li>
+          <li>時間を置いてから再度試す（FAL AIのサーバーが混雑している可能性）</li>
+        </ul>
+      </div>
+
+      <div class="feature-item">
+        <h3>拡張機能が起動しない</h3>
+        <p>拡張機能アイコンをクリックしても反応がない場合：</p>
+        <ul style="padding-left: 2.5rem;">
+          <li>Chromeを再起動する</li>
+          <li>chrome://extensions/ で拡張機能が有効になっているか確認</li>
+          <li>拡張機能を一度削除して再インストール</li>
+          <li>Chromeが最新バージョンにアップデートされているか確認</li>
+        </ul>
+      </div>
+
+      <div class="feature-item" style="background-color: #e3f2fd; border-left: 4px solid #2196f3; margin-top: var(--spacing-md);">
+        <h3 style="color: #1565c0;">💬 それでも解決しない場合</h3>
+        <p style="color: #1565c0;">
+          上記の方法を試しても問題が解決しない場合は、開発者のXアカウント（<a href="https://x.com/kei31" target="_blank" rel="noopener noreferrer" style="color: #1565c0; font-weight: 600;">@kei31</a>）にDMでお問い合わせください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Thumbnail Creator</h3>
+          <p>文章に集中するだけ。AIがあなたのコンテンツを引き立てるサムネイルを生成します。</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>クイックリンク</h3>
+          <ul>
+            <li><a href="index.html#features">特徴</a></li>
+            <li><a href="index.html#how-to-use">使い方</a></li>
+            <li><a href="gallery.html">ギャラリー</a></li>
+            <li><a href="index.html#download">ダウンロード</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>ドキュメント</h3>
+          <ul>
+            <li><a href="tutorial.html">使い方・チュートリアル</a></li>
+            <li><a href="gallery.html">サンプルギャラリー</a></li>
+            <li><a href="versions.html">過去のバージョン</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>その他</h3>
+          <ul>
+            <li><a href="terms.html">利用規約</a></li>
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Thumbnail Creator. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

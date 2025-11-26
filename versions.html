@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thumbnail Creatorの過去のバージョンをダウンロードできます。バージョン履歴、変更内容、改善点をご確認ください。">
+  <title>過去のバージョン | Thumbnail Creator</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .versions-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--spacing-lg) 0;
+      background-color: var(--color-white);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+
+    .versions-table thead {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .versions-table th,
+    .versions-table td {
+      padding: var(--spacing-sm);
+      text-align: left;
+      border-bottom: 1px solid var(--color-gray-light);
+    }
+
+    .versions-table th {
+      font-weight: 600;
+    }
+
+    .versions-table tbody tr:hover {
+      background-color: var(--color-gray-light);
+    }
+
+    .versions-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .version-badge-table {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .version-badge-table.latest {
+      background-color: #28a745;
+    }
+
+    .download-btn-small {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .download-btn-small:hover {
+      background-color: var(--color-primary-dark);
+      color: var(--color-white);
+    }
+
+    .changelog-toggle {
+      background: none;
+      border: none;
+      color: var(--color-primary);
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    .changelog-toggle:hover {
+      color: var(--color-primary-dark);
+    }
+
+    .changelog-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background-color: var(--color-gray-light);
+    }
+
+    .changelog-content.active {
+      max-height: 1000px;
+      padding: var(--spacing-sm);
+    }
+
+    .changelog-content h4 {
+      color: var(--color-primary);
+      margin-top: var(--spacing-sm);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .changelog-content h4:first-child {
+      margin-top: 0;
+    }
+
+    .changelog-content ul {
+      padding-left: var(--spacing-md);
+      margin-bottom: 0.5rem;
+    }
+
+    .changelog-content li {
+      margin-bottom: 0.25rem;
+      color: var(--color-gray-dark);
+    }
+
+    .info-box {
+      background-color: #d1ecf1;
+      border-left: 4px solid #0c5460;
+      padding: var(--spacing-sm);
+      border-radius: var(--border-radius);
+      margin: var(--spacing-md) 0;
+    }
+
+    .info-box h4 {
+      color: #0c5460;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-box ul {
+      padding-left: var(--spacing-md);
+      margin-bottom: 0;
+    }
+
+    .info-box li {
+      margin-bottom: 0.25rem;
+      color: #0c5460;
+    }
+
+    @media (max-width: 768px) {
+      .versions-table {
+        font-size: 0.85rem;
+      }
+
+      .versions-table th,
+      .versions-table td {
+        padding: 0.5rem 0.25rem;
+      }
+
+      .file-size-col {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="Thumbnail Creator">
+          Thumbnail Creator
+        </a>
+        <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+          ☰
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html#features">特徴</a></li>
+          <li><a href="tutorial.html">使い方</a></li>
+          <li><a href="gallery.html">ギャラリー</a></li>
+          <li><a href="index.html#download">ダウンロード</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Versions Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>過去のバージョン</h1>
+        <p class="hero-subtitle">
+          Thumbnail Creatorの過去のバージョンをダウンロードできます。<br>
+          各バージョンの変更履歴をご確認の上、必要なバージョンをダウンロードしてください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Important Notes -->
+  <section class="content-section">
+    <div class="container container-narrow">
+      <div class="info-box">
+        <h4>📌 重要なお知らせ</h4>
+        <ul>
+          <li>最新版のご利用を強く推奨します。最新版には最新の機能改善とバグ修正が含まれています。</li>
+          <li>過去のバージョンはサポート対象外です。問題が発生した場合は、最新版へのアップデートをご検討ください。</li>
+          <li>アップデート方法: 既存の拡張機能を削除し、新しいバージョンを<a href="tutorial.html">インストール手順</a>に従ってインストールしてください。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Versions Table -->
+  <section class="content-section" style="background-color: var(--color-gray-light);">
+    <div class="container">
+      <h2>バージョン一覧</h2>
+
+      <table class="versions-table">
+        <thead>
+          <tr>
+            <th>バージョン</th>
+            <th>リリース日</th>
+            <th class="file-size-col">ファイルサイズ</th>
+            <th>ダウンロード</th>
+            <th>変更履歴</th>
+          </tr>
+        </thead>
+        <tbody id="versionsTableBody">
+          <!-- Dynamically populated from versions.json -->
+          <tr>
+            <td colspan="5" style="text-align: center; padding: var(--spacing-lg);">
+              読み込み中...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Thumbnail Creator</h3>
+          <p>文章に集中するだけ。AIがあなたのコンテンツを引き立てるサムネイルを生成します。</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>クイックリンク</h3>
+          <ul>
+            <li><a href="index.html#features">特徴</a></li>
+            <li><a href="index.html#how-to-use">使い方</a></li>
+            <li><a href="gallery.html">ギャラリー</a></li>
+            <li><a href="index.html#download">ダウンロード</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>ドキュメント</h3>
+          <ul>
+            <li><a href="tutorial.html">使い方・チュートリアル</a></li>
+            <li><a href="gallery.html">サンプルギャラリー</a></li>
+            <li><a href="versions.html">過去のバージョン</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>その他</h3>
+          <ul>
+            <li><a href="terms.html">利用規約</a></li>
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Thumbnail Creator. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Load versions from JSON and populate table
+    document.addEventListener('DOMContentLoaded', async function() {
+      try {
+        const response = await fetch('downloads/versions.json');
+        const data = await response.json();
+
+        const tbody = document.getElementById('versionsTableBody');
+        tbody.innerHTML = '';
+
+        data.versions.forEach((version, index) => {
+          const isLatest = version.version === data.latest;
+
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>
+              <span class="version-badge-table ${isLatest ? 'latest' : ''}">
+                v${version.version}
+              </span>
+              ${isLatest ? '<span style="margin-left: 0.5rem; color: #28a745; font-weight: 600;">最新版</span>' : ''}
+            </td>
+            <td>${version.releaseDate}</td>
+            <td class="file-size-col">${version.fileSize}</td>
+            <td>
+              <a href="${version.downloadUrl}" class="download-btn-small" download>
+                ダウンロード
+              </a>
+            </td>
+            <td>
+              <button class="changelog-toggle" onclick="toggleChangelog(${index})">
+                変更履歴を表示
+              </button>
+            </td>
+          `;
+          tbody.appendChild(row);
+
+          // Add changelog content row
+          const changelogRow = document.createElement('tr');
+          changelogRow.innerHTML = `
+            <td colspan="5" style="padding: 0;">
+              <div class="changelog-content" id="changelog-${index}">
+                ${generateChangelogHTML(version.changelog)}
+              </div>
+            </td>
+          `;
+          tbody.appendChild(changelogRow);
+        });
+
+      } catch (error) {
+        console.error('バージョン情報の読み込みに失敗しました:', error);
+        document.getElementById('versionsTableBody').innerHTML = `
+          <tr>
+            <td colspan="5" style="text-align: center; padding: var(--spacing-lg); color: var(--color-primary);">
+              バージョン情報の読み込みに失敗しました。ページを再読み込みしてください。
+            </td>
+          </tr>
+        `;
+      }
+    });
+
+    function generateChangelogHTML(changelog) {
+      let html = '';
+
+      if (changelog.newFeatures && changelog.newFeatures.length > 0) {
+        html += '<h4>✨ 新機能</h4><ul>';
+        changelog.newFeatures.forEach(feature => {
+          html += `<li>${feature}</li>`;
+        });
+        html += '</ul>';
+      }
+
+      if (changelog.improvements && changelog.improvements.length > 0) {
+        html += '<h4>🔧 改善点</h4><ul>';
+        changelog.improvements.forEach(improvement => {
+          html += `<li>${improvement}</li>`;
+        });
+        html += '</ul>';
+      }
+
+      if (changelog.bugFixes && changelog.bugFixes.length > 0) {
+        html += '<h4>🐛 バグ修正</h4><ul>';
+        changelog.bugFixes.forEach(fix => {
+          html += `<li>${fix}</li>`;
+        });
+        html += '</ul>';
+      }
+
+      if (changelog.knownIssues && changelog.knownIssues.length > 0) {
+        html += '<h4>⚠️ 既知の問題</h4><ul>';
+        changelog.knownIssues.forEach(issue => {
+          html += `<li>${issue}</li>`;
+        });
+        html += '</ul>';
+      }
+
+      return html;
+    }
+
+    function toggleChangelog(index) {
+      const changelog = document.getElementById(`changelog-${index}`);
+      const button = event.target;
+
+      if (changelog.classList.contains('active')) {
+        changelog.classList.remove('active');
+        button.textContent = '変更履歴を表示';
+      } else {
+        // Close all other changelogs
+        document.querySelectorAll('.changelog-content').forEach(cl => {
+          cl.classList.remove('active');
+        });
+        document.querySelectorAll('.changelog-toggle').forEach(btn => {
+          btn.textContent = '変更履歴を表示';
+        });
+
+        // Open this changelog
+        changelog.classList.add('active');
+        button.textContent = '変更履歴を隠す';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thumbnail Creatorで生成されたサンプルギャラリー。デザインスタイル別、テーマカラー別、アスペクト比別のサムネイル例をご覧いただけます。">
+  <title>サンプルギャラリー | Thumbnail Creator</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .filter-section {
+      background-color: var(--color-gray-light);
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .filter-group {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .filter-group label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--color-gray);
+      background-color: var(--color-white);
+      color: var(--color-gray-dark);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .filter-btn.active {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .gallery-item {
+      position: relative;
+    }
+
+    .gallery-item .tags {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      right: 0;
+      padding: 0.5rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      display: flex;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .tags {
+      opacity: 1;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 12px;
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .gallery-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: var(--color-white);
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .gallery-modal-close:hover {
+      color: var(--color-primary);
+    }
+
+    .gallery-modal-caption {
+      text-align: center;
+      color: var(--color-white);
+      padding: 1rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .placeholder-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #e62b1c 0%, #cc2619 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="Thumbnail Creator">
+          Thumbnail Creator
+        </a>
+        <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+          ☰
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html#features">特徴</a></li>
+          <li><a href="tutorial.html">使い方</a></li>
+          <li><a href="gallery.html">ギャラリー</a></li>
+          <li><a href="index.html#download">ダウンロード</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Gallery Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>サンプルギャラリー</h1>
+        <p class="hero-subtitle">
+          Thumbnail Creatorで生成されたサムネイルの例をご覧ください。<br>
+          デザインスタイル、テーマカラー、アスペクト比でフィルタリングできます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="filter-section">
+        <div class="filter-group">
+          <label>デザインスタイル</label>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="style" data-value="all">すべて</button>
+            <button class="filter-btn" data-filter="style" data-value="modern">モダン風</button>
+            <button class="filter-btn" data-filter="style" data-value="vivid">ビビッド風</button>
+            <button class="filter-btn" data-filter="style" data-value="professional">プロフェッショナル風</button>
+            <button class="filter-btn" data-filter="style" data-value="minimal">ミニマル風</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>テーマカラー</label>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="color" data-value="all">すべて</button>
+            <button class="filter-btn" data-filter="color" data-value="red">赤</button>
+            <button class="filter-btn" data-filter="color" data-value="blue">青</button>
+            <button class="filter-btn" data-filter="color" data-value="green">緑</button>
+            <button class="filter-btn" data-filter="color" data-value="orange">オレンジ</button>
+            <button class="filter-btn" data-filter="color" data-value="purple">紫</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>アスペクト比</label>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="aspect" data-value="all">すべて</button>
+            <button class="filter-btn" data-filter="aspect" data-value="16:9">16:9 (YouTube)</button>
+            <button class="filter-btn" data-filter="aspect" data-value="4:5">4:5 (Instagram)</button>
+            <button class="filter-btn" data-filter="aspect" data-value="1:1">1:1 (正方形)</button>
+            <button class="filter-btn" data-filter="aspect" data-value="9:16">9:16 (ストーリー)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Modern Style Samples -->
+        <div class="gallery-item" data-style="modern" data-color="blue" data-aspect="16:9">
+          <div class="placeholder-image">モダン風サンプル 1<br>青 / 16:9</div>
+          <div class="tags">
+            <span class="tag">モダン風</span>
+            <span class="tag">青</span>
+            <span class="tag">16:9</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>テクノロジーブログ</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-style="modern" data-color="green" data-aspect="16:9">
+          <div class="placeholder-image">モダン風サンプル 2<br>緑 / 16:9</div>
+          <div class="tags">
+            <span class="tag">モダン風</span>
+            <span class="tag">緑</span>
+            <span class="tag">16:9</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>環境ニュース</h4>
+          </div>
+        </div>
+
+        <!-- Vivid Style Samples -->
+        <div class="gallery-item" data-style="vivid" data-color="red" data-aspect="16:9">
+          <div class="placeholder-image">ビビッド風サンプル 1<br>赤 / 16:9</div>
+          <div class="tags">
+            <span class="tag">ビビッド風</span>
+            <span class="tag">赤</span>
+            <span class="tag">16:9</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>セールキャンペーン</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-style="vivid" data-color="orange" data-aspect="4:5">
+          <div class="placeholder-image">ビビッド風サンプル 2<br>オレンジ / 4:5</div>
+          <div class="tags">
+            <span class="tag">ビビッド風</span>
+            <span class="tag">オレンジ</span>
+            <span class="tag">4:5</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>料理レシピ</h4>
+          </div>
+        </div>
+
+        <!-- Professional Style Samples -->
+        <div class="gallery-item" data-style="professional" data-color="blue" data-aspect="16:9">
+          <div class="placeholder-image">プロフェッショナル風サンプル 1<br>青 / 16:9</div>
+          <div class="tags">
+            <span class="tag">プロフェッショナル風</span>
+            <span class="tag">青</span>
+            <span class="tag">16:9</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>ビジネスセミナー</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-style="professional" data-color="purple" data-aspect="1:1">
+          <div class="placeholder-image">プロフェッショナル風サンプル 2<br>紫 / 1:1</div>
+          <div class="tags">
+            <span class="tag">プロフェッショナル風</span>
+            <span class="tag">紫</span>
+            <span class="tag">1:1</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>マーケティング講座</h4>
+          </div>
+        </div>
+
+        <!-- Minimal Style Samples -->
+        <div class="gallery-item" data-style="minimal" data-color="blue" data-aspect="16:9">
+          <div class="placeholder-image">ミニマル風サンプル 1<br>青 / 16:9</div>
+          <div class="tags">
+            <span class="tag">ミニマル風</span>
+            <span class="tag">青</span>
+            <span class="tag">16:9</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>デザインポートフォリオ</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-style="minimal" data-color="red" data-aspect="9:16">
+          <div class="placeholder-image">ミニマル風サンプル 2<br>赤 / 9:16</div>
+          <div class="tags">
+            <span class="tag">ミニマル風</span>
+            <span class="tag">赤</span>
+            <span class="tag">9:16</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>ストーリー投稿</h4>
+          </div>
+        </div>
+
+        <!-- Additional Samples -->
+        <div class="gallery-item" data-style="modern" data-color="purple" data-aspect="1:1">
+          <div class="placeholder-image">モダン風サンプル 3<br>紫 / 1:1</div>
+          <div class="tags">
+            <span class="tag">モダン風</span>
+            <span class="tag">紫</span>
+            <span class="tag">1:1</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>ポッドキャスト</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-style="vivid" data-color="green" data-aspect="16:9">
+          <div class="placeholder-image">ビビッド風サンプル 3<br>緑 / 16:9</div>
+          <div class="tags">
+            <span class="tag">ビビッド風</span>
+            <span class="tag">緑</span>
+            <span class="tag">16:9</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>フィットネス動画</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-style="professional" data-color="red" data-aspect="4:5">
+          <div class="placeholder-image">プロフェッショナル風サンプル 3<br>赤 / 4:5</div>
+          <div class="tags">
+            <span class="tag">プロフェッショナル風</span>
+            <span class="tag">赤</span>
+            <span class="tag">4:5</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>不動産広告</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-style="minimal" data-color="orange" data-aspect="16:9">
+          <div class="placeholder-image">ミニマル風サンプル 3<br>オレンジ / 16:9</div>
+          <div class="tags">
+            <span class="tag">ミニマル風</span>
+            <span class="tag">オレンジ</span>
+            <span class="tag">16:9</span>
+          </div>
+          <div class="gallery-item-info">
+            <h4>ライフスタイルブログ</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="download">
+    <div class="container container-narrow">
+      <h2>今すぐ始めましょう</h2>
+      <p class="text-center">
+        これらのようなサムネイルを、あなたも簡単に作成できます。<br>
+        Thumbnail Creatorをダウンロードして、今すぐ使い始めましょう。
+      </p>
+      <div class="text-center mt-2">
+        <a href="index.html#download" class="btn btn-primary">ダウンロード</a>
+        <a href="tutorial.html" class="btn btn-outline">使い方を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Thumbnail Creator</h3>
+          <p>文章に集中するだけ。AIがあなたのコンテンツを引き立てるサムネイルを生成します。</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>クイックリンク</h3>
+          <ul>
+            <li><a href="index.html#features">特徴</a></li>
+            <li><a href="index.html#how-to-use">使い方</a></li>
+            <li><a href="gallery.html">ギャラリー</a></li>
+            <li><a href="index.html#download">ダウンロード</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>ドキュメント</h3>
+          <ul>
+            <li><a href="tutorial.html">使い方・チュートリアル</a></li>
+            <li><a href="gallery.html">サンプルギャラリー</a></li>
+            <li><a href="versions.html">過去のバージョン</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>その他</h3>
+          <ul>
+            <li><a href="terms.html">利用規約</a></li>
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Thumbnail Creator. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Gallery Filter Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      let activeFilters = {
+        style: 'all',
+        color: 'all',
+        aspect: 'all'
+      };
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filterType = this.dataset.filter;
+          const filterValue = this.dataset.value;
+
+          // Update active filter
+          activeFilters[filterType] = filterValue;
+
+          // Update button states for this filter type
+          document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(btn => {
+            btn.classList.remove('active');
+          });
+          this.classList.add('active');
+
+          // Filter gallery items
+          galleryItems.forEach(item => {
+            const itemStyle = item.dataset.style;
+            const itemColor = item.dataset.color;
+            const itemAspect = item.dataset.aspect;
+
+            const matchesStyle = activeFilters.style === 'all' || itemStyle === activeFilters.style;
+            const matchesColor = activeFilters.color === 'all' || itemColor === activeFilters.color;
+            const matchesAspect = activeFilters.aspect === 'all' || itemAspect === activeFilters.aspect;
+
+            if (matchesStyle && matchesColor && matchesAspect) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

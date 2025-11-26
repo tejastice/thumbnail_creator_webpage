@@ -1,0 +1,51 @@
+{
+  "versions": [
+    {
+      "version": "1.0.0",
+      "releaseDate": "2024-01-15",
+      "fileSize": "2.5 MB",
+      "downloadUrl": "downloads/thumbnail-creator-v1.0.0.zip",
+      "changelog": {
+        "newFeatures": [
+          "AIによるサムネイル自動生成機能",
+          "4つのデザインスタイル（モダン、ビビッド、プロフェッショナル、ミニマル）",
+          "12色のテーマカラー選択",
+          "10種類のアスペクト比対応（21:9から9:16まで）",
+          "カスタムデザイングループの作成・編集機能",
+          "デザイングループのインポート/エクスポート機能",
+          "タイトル入力機能（オプション）",
+          "文字数カウント表示"
+        ],
+        "improvements": [],
+        "bugFixes": [],
+        "knownIssues": [
+          "生成に時間がかかる場合があります（通常30秒〜1分程度）",
+          "ネットワーク接続が不安定な場合、タイムアウトエラーが発生する可能性があります"
+        ]
+      }
+    },
+    {
+      "version": "0.9.0",
+      "releaseDate": "2024-01-01",
+      "fileSize": "2.3 MB",
+      "downloadUrl": "downloads/thumbnail-creator-v0.9.0.zip",
+      "changelog": {
+        "newFeatures": [
+          "ベータ版リリース",
+          "基本的なサムネイル生成機能",
+          "3つのデザインスタイル",
+          "8色のテーマカラー",
+          "5種類のアスペクト比対応"
+        ],
+        "improvements": [],
+        "bugFixes": [],
+        "knownIssues": [
+          "一部のブラウザでUIが正しく表示されない場合があります",
+          "長いテキストを入力すると生成が不安定になることがあります"
+        ]
+      }
+    }
+  ],
+  "latest": "1.0.0",
+  "minimumChromeVersion": "88"
+}
