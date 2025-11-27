@@ -16,10 +16,7 @@
         "bugFixes": [
           "他ユーザーのテンプレートインポート時に発生していた「Resource::kQuotaBytes quota exceeded」エラーを修正"
         ],
-        "knownIssues": [
-          "FAL AI APIの利用には別途APIキーの取得とクレジットのチャージが必要です",
-          "画像生成には数秒～数十秒かかる場合があります"
-        ]
+        "knownIssues": []
       }
     },
     {
@@ -41,10 +38,7 @@
         ],
         "improvements": [],
         "bugFixes": [],
-        "knownIssues": [
-          "FAL AI APIの利用には別途APIキーの取得とクレジットのチャージが必要です",
-          "画像生成には数秒～数十秒かかる場合があります"
-        ]
+        "knownIssues": []
       }
     }
   ]
