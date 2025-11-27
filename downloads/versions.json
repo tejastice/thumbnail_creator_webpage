@@ -1,6 +1,42 @@
 {
-  "latest": "1.0.3",
+  "latest": "1.1.1",
   "versions": [
+    {
+      "version": "1.1.1",
+      "releaseDate": "2025-11-27",
+      "fileSize": "1.8M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_1_1.zip",
+      "changelog": {
+        "newFeatures": [],
+        "improvements": [
+          "4コママンガデザインを白黒版とカラー版の2種類に分割"
+        ],
+        "bugFixes": [],
+        "knownIssues": []
+      }
+    },
+    {
+      "version": "1.1.0",
+      "releaseDate": "2025-11-27",
+      "fileSize": "1.8M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_1_0.zip",
+      "changelog": {
+        "newFeatures": [
+          "アスペクト比設定をテンプレートごとに管理できる機能を追加",
+          "4コママンガデザインスタイルを追加（縦長9:16、日本語縦書き対応）",
+          "画像生成のキャンセル機能を追加"
+        ],
+        "improvements": [
+          "アスペクト比セレクターをサンプル画像の下（生成ボタンの上）に配置",
+          "テンプレート編集画面にデフォルトアスペクト比設定を追加",
+          "サンプル画像表示を正方形（1:1）コンテナに固定し、縦長・横長画像の表示を改善",
+          "タイムアウト時のエラー表示を改善（コンソールエラーを削除し、UI表示のみに変更）",
+          "キャンセルボタンを赤色で視覚的に強調"
+        ],
+        "bugFixes": [],
+        "knownIssues": []
+      }
+    },
     {
       "version": "1.0.3",
       "releaseDate": "2025-11-27",
