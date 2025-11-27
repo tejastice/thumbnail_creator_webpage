@@ -1,6 +1,35 @@
 {
-  "latest": "1.0.1",
+  "latest": "1.0.3",
   "versions": [
+    {
+      "version": "1.0.3",
+      "releaseDate": "2025-11-27",
+      "fileSize": "1.8M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_0_3.zip",
+      "changelog": {
+        "newFeatures": [],
+        "improvements": [
+          "クリップボードへのコピー時の通知をダイアログからトーストに変更"
+        ],
+        "bugFixes": [],
+        "knownIssues": []
+      }
+    },
+    {
+      "version": "1.0.2",
+      "releaseDate": "2025-11-27",
+      "fileSize": "1.8M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_0_2.zip",
+      "changelog": {
+        "newFeatures": [],
+        "improvements": [
+          "テーマカラーにホワイトを追加（ティールを削除）",
+          "コンテンツガイドラインを改善：記事の時間的・次元的な情報（日付、記事数、閲覧数など）を除外するように指示を追加"
+        ],
+        "bugFixes": [],
+        "knownIssues": []
+      }
+    },
     {
       "version": "1.0.1",
       "releaseDate": "2025-11-27",
