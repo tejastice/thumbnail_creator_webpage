@@ -1,6 +1,25 @@
 {
-  "latest": "1.4.1",
+  "latest": "1.5.0",
   "versions": [
+    {
+      "version": "1.5.0",
+      "releaseDate": "2025-12-10",
+      "fileSize": "1.3M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_5_0.zip",
+      "changelog": {
+        "newFeatures": [
+          "ストレージ使用量表示機能を追加 - デザイン選択画面で使用量と使用率をリアルタイム表示"
+        ],
+        "improvements": [
+          "インポート時の画像リサイズを600x600px、品質75%に変更（従来は800x800px、85%）",
+          "テンプレートサイズを約50〜60%削減し、より多くのテンプレートを保存可能に",
+          "使用率70%以上でオレンジ、90%以上で赤色警告表示",
+          "デザイングループ保存時に自動的にストレージ使用量を更新"
+        ],
+        "bugFixes": [],
+        "knownIssues": []
+      }
+    },
     {
       "version": "1.4.1",
       "releaseDate": "2025-11-30",
