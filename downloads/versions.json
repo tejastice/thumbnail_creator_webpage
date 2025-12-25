@@ -1,6 +1,25 @@
 {
-  "latest": "1.5.0",
+  "latest": "1.6.0",
   "versions": [
+    {
+      "version": "1.6.0",
+      "releaseDate": "2025-12-25",
+      "fileSize": "1.3M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_6_0.zip",
+      "changelog": {
+        "newFeatures": [
+          "既存テンプレートの自動最適化機能を追加 - 読み込み時にJPEG形式や大きな画像を自動的にWebPに変換"
+        ],
+        "improvements": [
+          "全画像をWebP形式に変更し、JPEG比30-50%のファイルサイズ削減を実現",
+          "テンプレート画像サイズを500x500pxに統一（従来は600x600px）",
+          "画像最適化により、10MBストレージでより多くのテンプレートを保存可能に",
+          "自動最適化時にトースト通知で変換完了をお知らせ"
+        ],
+        "bugFixes": [],
+        "knownIssues": []
+      }
+    },
     {
       "version": "1.5.0",
       "releaseDate": "2025-12-10",
