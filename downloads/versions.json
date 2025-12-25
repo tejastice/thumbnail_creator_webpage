@@ -1,6 +1,24 @@
 {
-  "latest": "1.6.0",
+  "latest": "1.6.1",
   "versions": [
+    {
+      "version": "1.6.1",
+      "releaseDate": "2025-12-25",
+      "fileSize": "1.3M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_6_1.zip",
+      "changelog": {
+        "newFeatures": [
+          "テンプレート編集画面にテンプレートの順番を変更できる機能を追加"
+        ],
+        "improvements": [
+          "各テンプレートに左右の移動ボタン（◀▶）を追加",
+          "移動時のスムーズなアニメーション効果を実装（パルス＋スライドイン）",
+          "最初と最後のテンプレートでボタンが自動的に無効化される仕様"
+        ],
+        "bugFixes": [],
+        "knownIssues": []
+      }
+    },
     {
       "version": "1.6.0",
       "releaseDate": "2025-12-25",
