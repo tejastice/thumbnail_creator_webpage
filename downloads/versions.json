@@ -1,6 +1,24 @@
 {
-  "latest": "1.6.1",
+  "latest": "1.6.2",
   "versions": [
+    {
+      "version": "1.6.2",
+      "releaseDate": "2025-12-27",
+      "fileSize": "1.3M",
+      "downloadUrl": "downloads/thumbnail_creator_v1_6_2.zip",
+      "changelog": {
+        "newFeatures": [
+          "APIキー未設定時の警告表示機能を追加 - ヘッダーに赤い警告バッジが表示されます"
+        ],
+        "improvements": [
+          "生成失敗時のエラーメッセージを改善 - APIキー未設定の場合は具体的な設定方法を表示",
+          "APIキー警告にパルスアニメーションを追加し、視認性を向上",
+          "テンプレート集ページの注意事項セクションをコンパクト化（フォントサイズ・行間を縮小）"
+        ],
+        "bugFixes": [],
+        "knownIssues": []
+      }
+    },
     {
       "version": "1.6.1",
       "releaseDate": "2025-12-25",
